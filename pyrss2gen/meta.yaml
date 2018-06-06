@@ -1,0 +1,32 @@
+{% set name = "pyrss2gen" %}
+{% set version = "1.1" %}
+{% set file_ext = "tar.gz" %}
+{% set hash_value = "7960aed7e998d2482bf58716c316509786f596426f879b05f8d84e98b82c6ee7" %}
+
+package:
+  name: '{{ name|lower }}'
+  version: '{{ version }}'
+
+source:
+  fn: '{{ name }}-{{ version }}.{{ file_ext }}'
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ file_ext }}
+  url: https://files.pythonhosted.org/packages/6d/01/fd610d5fc86f7dbdbefc4baa8f7fe15a2e5484244c41dcf363ca7e89f60c/PyRSS2Gen-1.1.tar.gz
+  sha256: '{{ hash_value }}'
+
+build:
+  number: 0
+  script: 'python setup.py install '
+
+requirements:
+  host:
+    - python
+  run:
+    - python
+
+about:
+  home: http://dalkescientific.com/Python/PyRSS2Gen.html
+  license: BSD License
+  license_family: BSD
+  summary: Generate RSS2 using a Python data structure
+  description: "A Python library for generating RSS 2.0 feeds"
+
